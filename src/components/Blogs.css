@@ -1,0 +1,26 @@
+.blogcards{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 5px;
+    padding: 30px 80px;
+}
+.blog_container{
+    background-color: #fff;
+     margin:30px ;
+     padding-top: 50px;
+}
+.blog_container h5{
+ color: #2AA7FF;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 27px;
+    text-align: center;
+}
+.blog_container h1{
+    color: #1B3C74;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 67px;
+    text-align: center;
+}

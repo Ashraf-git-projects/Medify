@@ -1,0 +1,73 @@
+.faq_container {
+  background-color: #fff;
+  width: 100%;
+  height: auto;
+  padding: 20px 80px;
+}
+
+.faq_para {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2aa7ff;
+  line-height: 27px;
+  padding: 5px;
+}
+.faq_head {
+  text-align: center;
+  font-size: 48px;
+  font-weight: 600;
+  color: #1b3c74;
+  line-height: 67px;
+  padding-bottom: 40px;
+}
+
+.faq_flex_part {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.faq_img {
+  height: 478px;
+  width: 500px;
+  top: 10px;
+  left: 11px;
+  border: 10px solid white;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+}
+.tree_box {
+    height: 500px;
+    width: 484px;
+    top: 61px;
+    left: 598px;
+    padding: 60px 0;
+  font-size: 19px;
+  font-weight: bolder;
+  color: #1b3c74;
+  line-height: 30px;
+  letter-spacing: 0%;
+}
+
+.faq_popup {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 242px;
+  height: 105px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  padding-left: 25px;
+  bottom: 12em;
+  z-index: 2;
+}
+.pop_txts H1{
+    color: #1b3c74;
+}
+.pop_txts p{
+    color : #77829D
+}

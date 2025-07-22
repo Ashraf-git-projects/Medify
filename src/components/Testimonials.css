@@ -1,0 +1,33 @@
+.testimonial_container{
+    display: flex;
+    align-items: center;
+   
+    justify-content: space-around;
+    padding: 80px;
+}
+.para_start{
+    font-size: 17px;
+    line-height: 18px;
+    font-weight: 600;
+    color: #2AA7FF;
+}
+.test_parta h1{
+    font-size: 48px;
+    line-height: 67px;
+    font-weight: 600;
+    color: #1B3C74;
+}
+.big_para{
+    font-size: 17px;
+    line-height: 240%;
+    font-weight: 500;
+    color: #77829D;
+    vertical-align: middle;
+}
+.card_box {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  height: 70vh;
+  width: 40vh;
+}

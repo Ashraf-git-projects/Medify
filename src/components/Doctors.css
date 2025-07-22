@@ -1,0 +1,21 @@
+.doc_img{
+   width: 430px;
+  height: 505px;
+  object-fit: fill;
+  left: 570px;
+}
+.doc_h {
+  color: #1B3C74;
+  font-weight: 600;
+  font-size:48px;
+  line-height: 67px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.doc_wrapper{
+     background-color: #ffffff;
+  padding: 120px 80px 40px 80px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
+}
