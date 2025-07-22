@@ -1,0 +1,10 @@
+.footer_container{
+    padding: 40px 80px 20px;
+    background-color: #1B3C74;
+   
+}
+.footer_flex{
+ display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

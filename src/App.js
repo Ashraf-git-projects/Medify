@@ -9,6 +9,8 @@ import Patients from './components/Patients';
 import Blogs from './components/Blogs';
 import Testimonials from './components/Testimonials';
 import Faq from './components/Faq';
+import Advertise from './components/Advertise';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
          <Blogs />
          <Testimonials />
          <Faq />
+         <Advertise />
+         <Footer />
       </div>
     </div>
   );

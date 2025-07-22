@@ -1,0 +1,11 @@
+.adv_container{
+    padding: 20px 80px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.mobile_img{
+height: 427px;
+width: auto;
+}
