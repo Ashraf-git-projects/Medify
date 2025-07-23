@@ -28,7 +28,7 @@
 }
 
 .navbar {
-  padding: 20px 80px;
+  padding: 20px 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,6 +37,7 @@
 
 .logo {
   width: 100px;
+  margin-right: 145px;
 }
 
 .book_btn {
@@ -51,12 +52,12 @@
 /* HERO SECTION */
 .hero_section {
   position: relative;
-  padding: 10px 80px;
+  padding: 10px 120px;
 }
 
 .hero_flex {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .hero_text {

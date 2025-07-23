@@ -1,10 +1,36 @@
 .footer_container{
-    padding: 40px 80px 20px;
+    padding: 80px 160px 60px;
     background-color: #1B3C74;
-   
+    display:flex ;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .footer_flex{
  display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+.footer_tree_box{
+    color: rgb(255, 255, 255);
+}
+.footer_logo{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.footer_logo img{
+    height: 35px;
+    width: 120px;
+}
+.footer_icons{
+    padding-top: 10px;
+    font-size: 2em;
+    display: flex;
+    gap: 10px;
+    color: aliceblue;
+}
+.footer_para p{
+ color: white;
+ padding-top: 30px;
 }
