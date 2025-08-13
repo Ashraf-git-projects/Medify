@@ -46,7 +46,7 @@ export default function FindDoctors() {
     );
   };
 
-  // ✅ Restore last selected day after reload
+  // ✅ Load saved selected day on mount
   useEffect(() => {
     const savedDay = localStorage.getItem("selectedDay");
     if (savedDay) {
@@ -54,7 +54,7 @@ export default function FindDoctors() {
     }
   }, []);
 
-  // Save selected day whenever it changes
+  // ✅ Save selected day whenever it changes
   useEffect(() => {
     localStorage.setItem("selectedDay", selectedDay);
   }, [selectedDay]);
