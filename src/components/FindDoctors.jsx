@@ -46,6 +46,20 @@ export default function FindDoctors() {
     );
   };
 
+  // ✅ Restore last selected day after reload
+  useEffect(() => {
+    const savedDay = localStorage.getItem("selectedDay");
+    if (savedDay) {
+      setSelectedDay(savedDay);
+    }
+  }, []);
+
+  // Save selected day whenever it changes
+  useEffect(() => {
+    localStorage.setItem("selectedDay", selectedDay);
+  }, [selectedDay]);
+
+  // ✅ Fetch hospital data
   useEffect(() => {
     async function fetchData() {
       try {
@@ -63,7 +77,10 @@ export default function FindDoctors() {
         setLoading(false);
       }
     }
-    if (state && city) fetchData();
+
+    if (state && city) {
+      fetchData();
+    }
   }, [state, city]);
 
   if (loading) return <p className="loading-text">Loading...</p>;
