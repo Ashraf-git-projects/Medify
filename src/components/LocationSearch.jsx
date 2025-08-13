@@ -22,8 +22,11 @@ export default function LocationSearch() {
   const [selectedState, setSelectedState] = useState("");
   const [selectedCard, setSelectedCard] = useState(0);
   const [selectedCity, setSelectedCity] = useState("");
-  // Fetch states when user focuses state input
+  const [showStates, setShowStates] = useState(false);
+  const [showCities, setShowCities] = useState(false);
+
   const handleStateFocus = async () => {
+    setShowStates(true);
     if (statesData.length === 0) {
       try {
         const res = await fetch("https://meddata-backend.onrender.com/states");
@@ -34,29 +37,10 @@ export default function LocationSearch() {
       }
     }
   };
-  const navigate = useNavigate();
 
-  const handleSearch = () => {
-    if (!selectedState || !selectedCity) {
-      alert("Please select both state and city");
-      return;
-    }
-    navigate(
-      `/find-doctors?state=${encodeURIComponent(
-        selectedState
-      )}&city=${encodeURIComponent(selectedCity)}`
-    );
-  };
-
-  // Track selected state from input
-  const handleStateChange = (e) => {
-    setSelectedState(e.target.value);
-    setCityData([]); // reset cities if state changes
-  };
-
-  // Fetch cities when user focuses city input
   const handleCityFocus = async () => {
-    if (!selectedState) return; // no need for alert now
+    if (!selectedState) return;
+    setShowCities(true);
     if (cityData.length === 0) {
       try {
         const res = await fetch(
@@ -72,6 +56,32 @@ export default function LocationSearch() {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    if (!selectedState || !selectedCity) {
+      alert("Please select both state and city");
+      return;
+    }
+    navigate(
+      `/find-doctors?state=${encodeURIComponent(
+        selectedState
+      )}&city=${encodeURIComponent(selectedCity)}`
+    );
+  };
+
+  const handleStateSelect = (state) => {
+    setSelectedState(state);
+    setShowStates(false);
+    setCityData([]);
+    setSelectedCity("");
+  };
+
+  const handleCitySelect = (city) => {
+    setSelectedCity(city);
+    setShowCities(false);
+  };
+
   const cards = [
     { id: 1, title: "Doctors", icon: Person },
     { id: 2, title: "Labs", icon: DomainAdd },
@@ -84,37 +94,50 @@ export default function LocationSearch() {
     <div className="location_content">
       <div className="search-box">
         {/* STATE INPUT */}
-        <div id="state">
+        <div id="state" className="dropdown-container">
           <input
-            list="statesList"
             placeholder="Search State"
+            value={selectedState}
             onFocus={handleStateFocus}
-            onChange={handleStateChange}
+            onChange={(e) => setSelectedState(e.target.value)}
           />
-          <datalist id="statesList">
-            {statesData.map((state, idx) => (
-              <option key={idx} value={state} />
-            ))}
-          </datalist>
+          {showStates && statesData.length > 0 && (
+            <ul className="dropdown-list" id="statesList">
+              {statesData.map((state, idx) => (
+                <li key={idx} onClick={() => handleStateSelect(state)}>
+                  {state}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
         {/* CITY INPUT */}
-        <div id="city">
+        <div id="city" className="dropdown-container">
           <input
-            list="citiesList"
-            disabled={!selectedState} // disables until state selected
+            disabled={!selectedState}
+            value={selectedCity}
             onFocus={handleCityFocus}
             onChange={(e) => setSelectedCity(e.target.value)}
             placeholder={selectedState ? "Search City" : "Select state first"}
           />
-          <datalist id="citiesList">
-            {cityData.map((city, idx) => (
-              <option key={idx} value={city} />
-            ))}
-          </datalist>
+          {showCities && cityData.length > 0 && (
+            <ul className="dropdown-list" id="citiesList">
+              {cityData.map((city, idx) => (
+                <li key={idx} onClick={() => handleCitySelect(city)}>
+                  {city}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
 
-        <button id="searchBtn" type="submit" aria-label="Search" onClick={handleSearch}>
+        <button
+          id="searchBtn"
+          type="submit"
+          aria-label="Search"
+          onClick={handleSearch}
+        >
           <Search fontSize="medium" /> Search
         </button>
       </div>
