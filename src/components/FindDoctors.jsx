@@ -37,11 +37,8 @@ export default function FindDoctors() {
       time: time,
     };
 
-    // Get existing bookings
     const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
     existingBookings.push(newBooking);
-
-    // Save back to localStorage
     localStorage.setItem("bookings", JSON.stringify(existingBookings));
 
     alert(
@@ -74,7 +71,7 @@ export default function FindDoctors() {
   return (
     <div className="find-doctors-page">
       <h1 className="results-title">
-        {centers.length} medical centers available in {city}
+        {centers.length} medical centers available in {city?.toLowerCase()}
       </h1>
       <div className="doctors-grid">
         {centers.map((center, idx) => (
@@ -100,7 +97,6 @@ export default function FindDoctors() {
 
             {openDropdown === idx && (
               <div className="slot-dropdown">
-                {/* Day Tabs */}
                 <div className="day-tabs">
                   {getNextDays().map((day) => (
                     <button
@@ -110,12 +106,11 @@ export default function FindDoctors() {
                       }`}
                       onClick={() => setSelectedDay(day)}
                     >
-                      <p>{day}</p> 
+                      <p>{day}</p>
                     </button>
                   ))}
                 </div>
 
-                {/* Time Slots for Selected Day */}
                 <div className="slot-sections">
                   {Object.keys(slotData).map((session) => (
                     <div className="slot-section" key={session}>

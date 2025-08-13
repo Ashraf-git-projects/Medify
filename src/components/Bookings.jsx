@@ -11,23 +11,35 @@ export default function Bookings() {
   }, []);
 
   const filteredBookings = bookings.filter((b) =>
-    b.hospitalName.toLowerCase().includes(searchTerm.toLowerCase())
+    (b?.hospitalName || "")
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase())
   );
+
+  const handleSearch = (e) => {
+    e.preventDefault(); // Prevent form submission page reload
+  };
 
   return (
     <div className="bookings-page">
       <h1 className="bookings-title">My Bookings</h1>
 
       {/* Search bar */}
-      <div className="search-bar">
+      <form className="search-bar" onSubmit={handleSearch}>
         <input
           type="text"
           placeholder="Search By Hospital"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <button>🔍 Search</button>
-      </div>
+        <button
+          id="searchBtn"
+          type="submit"
+          aria-label="Search"
+        >
+          🔍 Search
+        </button>
+      </form>
 
       <div className="bookings-layout">
         {/* Left: Booking list */}
