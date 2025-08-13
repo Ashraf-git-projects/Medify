@@ -1,0 +1,122 @@
+.bookings-page {
+  padding: 20px;
+}
+
+.bookings-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.bookings-layout {
+  display: flex;
+  gap: 20px;
+}
+
+.bookings-list {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.booking-card {
+  display: flex;
+  justify-content: space-between;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.booking-left {
+  display: flex;
+  gap: 10px;
+}
+
+.hospital-icon {
+  font-size: 2rem;
+}
+
+.hospital-name {
+  color: #007bff;
+  margin: 0;
+}
+
+.location {
+  font-weight: bold;
+}
+
+.hospital-type {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.booking-right {
+  display: flex;
+  gap: 8px;
+}
+
+.time-badge {
+  background: #e6f0ff;
+  color: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.date-badge {
+  background: #eaffea;
+  color: #28a745;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.promo-card {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.promo-card .highlight {
+  color: #007bff;
+}
+
+.promo-sub {
+  background: #e6f0ff;
+  color: #007bff;
+  padding: 4px 8px;
+  display: inline-block;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+
+.promo-footer {
+  font-size: 0.8rem;
+  color: #555;
+}

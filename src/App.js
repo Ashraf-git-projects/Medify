@@ -1,18 +1,25 @@
 import './App.css';
-import NavBar from './components/NavBar';
-import HeroSection from './components/HeroSection';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
 import bgImage from './assets/Rectangle4.png';
-import PromoBanner from './components/PromoBanner';
-import SearchSpecial from './components/SearchSpecial';
-import Doctors from './components/Doctors';
-import Patients from './components/Patients';
-import Blogs from './components/Blogs';
-import Testimonials from './components/Testimonials';
-import Faq from './components/Faq';
-import Advertise from './components/Advertise';
-import Footer from './components/Footer';
+import RootLayout from './Layout/RootLayout';
+import HeroSection from './components/HeroSection';
+import Bookings from './components/Bookings';
+import FindDoctors from './components/FindDoctors';
 
 function App() {
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout />}>
+        {/* Home */}
+        <Route index element={<HeroSection />} />
+        {/* Other pages */}
+        <Route path="my-bookings" element={<Bookings />} />
+        <Route path="find-doctors" element={<FindDoctors />} />
+      </Route>
+    )
+  );
+
   return (
     <div
       className="appBg"
@@ -24,17 +31,7 @@ function App() {
       }}
     >
       <div className="contents">
-        <NavBar />
-        <HeroSection />
-         <PromoBanner />
-         <SearchSpecial />
-         <Doctors />
-         <Patients />
-         <Blogs />
-         <Testimonials />
-         <Faq />
-         <Advertise />
-         <Footer />
+        <RouterProvider router={router} />
       </div>
     </div>
   );
