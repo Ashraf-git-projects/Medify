@@ -8,11 +8,6 @@ export default function Bookings() {
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("bookings")) || [];
     setBookings(saved);
-
-    // ✅ Ensure data stays in localStorage (Cypress reload safe)
-    if (saved.length > 0) {
-      localStorage.setItem("bookings", JSON.stringify(saved));
-    }
   }, []);
 
   const filteredBookings = bookings.filter((b) =>
@@ -69,7 +64,7 @@ export default function Bookings() {
           </h3>
           <p className="promo-sub">LIMITED PERIOD OFFER</p>
           <p className="promo-footer">
-            *T&C Apply - only consultation fee. Procedures / surgeries not
+            *T & C Apply - only consultation fee. Procedures / surgeries not
             covered
           </p>
         </div>
