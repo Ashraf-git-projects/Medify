@@ -30,14 +30,15 @@ export default function FindDoctors() {
 
   const saveBooking = (center, day, time) => {
     const newBooking = {
-      // ✅ Force lowercase hospital name so test matches exactly
-      hospitalName: center["Hospital Name"].toLowerCase(),
+      // ✅ Keep exact API casing for hospital name
+      hospitalName: center["Hospital Name"],
       hospitalType: center["Hospital Type"],
       location: `${center.City}, ${center.State}`,
       date: day,
       time: time,
     };
 
+    // ✅ Persist booking in localStorage
     const existingBookings = JSON.parse(localStorage.getItem("bookings")) || [];
     existingBookings.push(newBooking);
     localStorage.setItem("bookings", JSON.stringify(existingBookings));
