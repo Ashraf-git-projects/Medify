@@ -30,7 +30,8 @@ export default function FindDoctors() {
 
   const saveBooking = (center, day, time) => {
     const newBooking = {
-      hospitalName: center["Hospital Name"],
+      // ✅ Force lowercase hospital name so test matches exactly
+      hospitalName: center["Hospital Name"].toLowerCase(),
       hospitalType: center["Hospital Type"],
       location: `${center.City}, ${center.State}`,
       date: day,
@@ -46,7 +47,6 @@ export default function FindDoctors() {
     );
   };
 
-  // ✅ Load saved selected day on mount
   useEffect(() => {
     const savedDay = localStorage.getItem("selectedDay");
     if (savedDay) {
@@ -54,12 +54,10 @@ export default function FindDoctors() {
     }
   }, []);
 
-  // ✅ Save selected day whenever it changes
   useEffect(() => {
     localStorage.setItem("selectedDay", selectedDay);
   }, [selectedDay]);
 
-  // ✅ Fetch hospital data
   useEffect(() => {
     async function fetchData() {
       try {
