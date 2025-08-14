@@ -65,6 +65,8 @@
 .hospital-name {
   color: #007bff;
   margin: 0;
+  text-transform: none;
+
 }
 
 .location {
