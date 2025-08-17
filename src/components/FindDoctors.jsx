@@ -31,7 +31,7 @@ export default function FindDoctors() {
  const saveBooking = (center, day, time) => {
   const newBooking = {
     // Store in lowercase for test matching
-    hospitalName: center["Hospital Name"].toLowerCase(),
+    hospitalName: center["Hospital Name"],
     hospitalType: center["Hospital Type"],
     location: `${center.City}, ${center.State}`,
     date: day,
