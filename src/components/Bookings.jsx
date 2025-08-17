@@ -7,7 +7,19 @@ export default function Bookings() {
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("bookings")) || [];
-    setBookings(saved);
+
+    // 🔑 Normalize keys so Cypress mock data + app data both work
+    const normalized = saved.map((b) => ({
+      hospitalName: b.hospitalName || b["Hospital Name"] || "",
+      hospitalType: b.hospitalType || b["Hospital Type"] || "",
+      location: b.location || b.City || "",
+      state: b.state || b.State || "",
+      rating: b.rating || b["Hospital overall rating"] || "",
+      date: b.date || b.bookingDate || "",
+      time: b.time || b.bookingTime || "",
+    }));
+
+    setBookings(normalized);
   }, []);
 
   if (bookings === null) {
