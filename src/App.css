@@ -179,6 +179,12 @@
 .dropdown-list li:hover {
   background-color: #f0f0f0;
 }
+#state li,
+#city li,
+li[role="option"],
+ul[role="listbox"] li {
+  text-transform: none !important;
+}
 
 /* CATEGORY CARDS */
 .category-box {
