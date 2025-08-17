@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./Bookings.css";
 
 export default function Bookings() {
-  const [bookings, setBookings] = useState([]);
+  // Initialize directly from localStorage so it's available on first render
+  const [bookings, setBookings] = useState(() => {
+    return JSON.parse(localStorage.getItem("bookings")) || [];
+  });
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Keep syncing with localStorage in case it changes
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("bookings")) || [];
     setBookings(saved);
@@ -40,7 +44,7 @@ export default function Bookings() {
                 <div className="booking-left">
                   <div className="hospital-icon">🏥</div>
                   <div className="booking-info">
-                    {/* Force lowercase for test match */}
+                    {/* Always lowercase for test match */}
                     <h3 className="hospital-name">
                       {booking.hospitalName?.toLowerCase()}
                     </h3>
