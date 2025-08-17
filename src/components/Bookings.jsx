@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import "./Bookings.css";
 
 export default function Bookings() {
-  const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState(null); // null until loaded
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("bookings")) || [];
     setBookings(saved);
   }, []);
+
+  if (bookings === null) {
+    return <div>Loading...</div>; // ensures Cypress waits
+  }
 
   const filteredBookings = bookings.filter((b) =>
     b.hospitalName?.toLowerCase().includes(searchTerm.toLowerCase())
@@ -18,7 +22,6 @@ export default function Bookings() {
     <div className="bookings-page">
       <h1 className="bookings-title">My Bookings</h1>
 
-      {/* Search bar */}
       <div className="search-bar">
         <input
           type="text"
@@ -30,7 +33,6 @@ export default function Bookings() {
       </div>
 
       <div className="bookings-layout">
-        {/* Left: Booking list */}
         <div className="bookings-list">
           {filteredBookings.length === 0 ? (
             <p>No bookings found.</p>
@@ -40,7 +42,9 @@ export default function Bookings() {
                 <div className="booking-left">
                   <div className="hospital-icon">🏥</div>
                   <div className="booking-info">
-                    <h3 className="hospital-name">{booking.hospitalName?.toLowerCase()}</h3>
+                    <h3 className="hospital-name">
+                      {booking.hospitalName?.toLowerCase()}
+                    </h3>
                     <p className="location">{booking.location}</p>
                     <p className="hospital-type">{booking.hospitalType}</p>
                   </div>
@@ -54,7 +58,6 @@ export default function Bookings() {
           )}
         </div>
 
-        {/* Right: Promo card */}
         <div className="promo-card">
           <h3>
             This World Oral Health Day, <br /> Get a{" "}
