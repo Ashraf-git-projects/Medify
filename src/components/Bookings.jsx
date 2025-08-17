@@ -40,10 +40,7 @@ export default function Bookings() {
                 <div className="booking-left">
                   <div className="hospital-icon">🏥</div>
                   <div className="booking-info">
-                    {/* Force lowercase for test match */}
-                    <h3 className="hospital-name">
-                      {booking.hospitalName?.toLowerCase()}
-                    </h3>
+                    <h3 className="hospital-name">{booking.hospitalName}</h3>
                     <p className="location">{booking.location}</p>
                     <p className="hospital-type">{booking.hospitalType}</p>
                   </div>
